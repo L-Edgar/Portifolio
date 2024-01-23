@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elisha Edgar</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="header__logo">Elisha <span>Edgar</span></div>
+        <div class="header-menu">
+           <a href="{% url 'index' %}"><div class="header-menu___1">Home</div></a> 
+            <a href="{% url 'projects' %}"><div class="header-menu___2">My Projects</div></a>
+            <a href="{% url 'contact' %}"><div class="header-menu___3">Contacts</div></a>
+        </div>
+        
+      </div>
+      <div class="main">
+        <div class="main__image" style="background-image: url({% static 'images/1656864301252.jpg' %});"></div>
+        <div class="main__text">
+            <div class="main__text-1">Hello 👋</div>
+            <div class="main__text-2">I'm <span>Edgar</span></div>
+            <div class="main__text-3">A developer from</div>
+            <div class="main__text-4">Uganda</div>
+            <div class="main__text-5">Welcome to my</div>
+            <div class="main__text-6">Portifolio</div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer__facebook">
+            <a href="https://www.facebook.com/erisa.edgar"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+        <div class="footer__github">
+            <a href="https://github.com/L-Edgar"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <div class="footer__twitter">
+            <a href="https://x.com/lelishaedgar10/"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        <div class="footer__linkedin">
+            <a href="https://linkedin.com/in/edgar-liiso-073a4527a
+            "><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div id="size"></div>
+    <!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+  <img src="https://hitwebcounter.com/counter/counter.php?page=10925835&style=0007&nbdigits=5&type=ip&initCount=0" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>   
+    <script src="script.js"></script>
+  </body>
+</html>

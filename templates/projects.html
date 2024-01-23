@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elisha Edgar | My Projects</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <style>
+        @media(max-width:700px){
+            .info__header{
+                font-size: 4vw;
+            }
+            .projects{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header__logo">Elisha <span>Edgar</span></div>
+      <div class="header-menu">
+        <a href="{% url 'index' %}"><div class="header-menu___1">Home</div></a>
+        <a href="{% url 'projects' %}"
+          ><div class="header-menu___2">My Projects</div></a
+        >
+        <a href="{% url 'contact' %}"><div class="header-menu___3">Contacts</div></a>
+      </div>
+    </div>
+    <div class="info">
+      <div class="info__header">My Projects</div>
+      <hr style="background-color: rgb(133, 29, 29); height:.5vh">
+      <div class="projects">
+        {% for project in projects %}
+        <div class="card_body">
+          <div class="img"><img src="{{project.image.url}}" alt="" /></div>
+          <div class="desc">{{project.description}}</div>
+          <div class="title"><a href="{{project.link}}">{{project.name}}</a></div>
+          <div class="box"></div>
+        </div>
+        
+        {% endfor %}
+      </div>
+    </div>
+    <footer>
+      <p>Copyrights at <a href="#">Elisha Edgar 2023</a></p>
+    </footer>
+  </body>
+</html>
