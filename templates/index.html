@@ -1,4 +1,5 @@
 {% load static %} {% static 'img' as baseUrl %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -670,49 +671,30 @@
               Help me rate my work by sending your review on my different
               projects. Simply fill the form the form below.
             </p>
-            <form>
+            <form method="post">
+              {% csrf_token %}
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="name"
-                      placeholder="Your Name"
-                    />
+                   {{form.name}}
                     <label for="name">Your Name</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="email"
-                      placeholder="Your Email"
-                    />
+                    {{form.email}}
                     <label for="email">Your Email</label>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="form-floating">
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="subject"
-                      placeholder="Subject"
-                    />
+                    {{form.subject}}
                     <label for="subject">Subject</label>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="form-floating">
-                    <textarea
-                      class="form-control"
-                      placeholder="Leave a message here"
-                      id="message"
-                      style="height: 100px"
-                    ></textarea>
+                    {{form.message}}
                     <label for="message">Message</label>
                   </div>
                 </div>
