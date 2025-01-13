@@ -12,10 +12,16 @@ class Testimonial(models.Model):
     name=models.CharField(max_length=100)
     comment=models.TextField()
     occupation=models.CharField(max_length=100)
-    image=models.ImageField(upload_to='pics')
+    image=models.ImageField(upload_to='pics',null=True,blank=True)
 
 class Skill(models.Model):
     name=models.CharField(max_length=100)
     score=models.IntegerField()
     color=models.CharField(max_length=100)
     column=models.BooleanField(default=False)
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    subject=models.CharField(max_length=100)

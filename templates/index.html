@@ -543,6 +543,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-3 d-none d-lg-block">
             <div class="testimonial-left h-100">
+              
               <img
                 class="img-fluid wow fadeIn"
                 data-wow-delay="0.1s"
@@ -568,11 +569,14 @@
                 {% for testimonial in testimonials %}
               <div class="testimonial-item text-center">
                 <div class="position-relative mb-5">
+                  
+             
                   <img
-                    class="img-fluid rounded-circle border border-secondary p-2 mx-auto"
-                    src="{{testimonial.image.url}}"
-                    alt=""
-                  />
+                  class="img-fluid rounded-circle border border-secondary p-2 mx-auto"
+                  src="{% static 'img/derick.png' %}"
+                  alt=""
+                />
+                 
                   <div class="testimonial-icon">
                     <i class="fa fa-quote-left text-primary"></i>
                   </div>
@@ -671,30 +675,31 @@
               Help me rate my work by sending your review on my different
               projects. Simply fill the form the form below.
             </p>
-            <form method="post">
+            <form method="post" action="{%url 'home:feedback' %}">
               {% csrf_token %}
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="form-floating">
-                   {{form.name}}
+                    {% render_field form.name %}
+                    
                     <label for="name">Your Name</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    {{form.email}}
+                    {% render_field form.email %}
                     <label for="email">Your Email</label>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="form-floating">
-                    {{form.subject}}
+                    {% render_field form.subject %}
                     <label for="subject">Subject</label>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="form-floating">
-                    {{form.message}}
+                    {% render_field form.message %}
                     <label for="message">Message</label>
                   </div>
                 </div>
@@ -717,8 +722,8 @@
         <div class="row">
           <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
             &copy;
-            <a class="border-bottom text-secondary" href="#">Liiso Edgar 2024</a
-            >, All Right Reserved.
+            <a class="border-bottom text-secondary" href="#">Liiso Edgar 2025</a
+            >, All Rights Reserved.
           </div>
           <div class="col-md-6 text-center text-md-end">
             Developed By

@@ -13,6 +13,7 @@ def home(request):
     return render(request,'index.html',{'projects':projects, 'testimonials':testimonials,'skills':skills})
 
 def feedback_view(request):
+    form=FeedbackForm()
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
@@ -30,8 +31,10 @@ def feedback_view(request):
             # Send email
             send_mail(subject, full_message, email, recipient_list, fail_silently=False)
             
-            return render(request, 'feedback_success.html', {'name': name})
+            
+            return render(request, 'index.html', {'name': name})
     else:
+        
         form = FeedbackForm()
 
-    return render(request, 'feedback_form.html', {'form': form})
+    return render(request, 'index.html', {'form': form})

@@ -1,24 +1,14 @@
 from django import forms
+from .models import Feedback
 
-class FeedbackForm(forms.Form):
-    name = forms.CharField(max_length=100, required=True, widget=forms.TextInput(attrs={
-            'class': 'form-control',
-            'id': 'name',
-            'placeholder': 'Your Name'
-        }))
-    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
-            'class': 'form-control',
-            'id': 'email',
-            'placeholder': 'Your Email'
-        }))
-    subject=forms.CharField(max_length=100,required=False,  widget=forms.TextInput(attrs={
-            'class': 'form-control',
-            'id': 'subject',
-            'placeholder': 'Subject'
-        }))
-    message = forms.CharField(widget=forms.Textarea, required=True, widget=forms.Textarea(attrs={
-            'class': 'form-control',
-            'id': 'message',
-            'placeholder': 'Message',
-            'style': 'height: 100px'
-        }))
+class FeedbackForm(forms.ModelForm):
+   class Meta:
+        model = Feedback
+        fields = ['name', 'email', 'message','subject']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your name'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter your email'}),
+            'subject': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Subject'}),
+            'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Your message'}),
+        }
+       
