@@ -4,5 +4,5 @@ from django.urls import path
 app_name='home'
 urlpatterns=[
     path('',views.home,name='home'),
-   
+    path('feedback/', views.feedback_view, name='feedback'),
 ]

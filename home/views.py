@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from .models import Project, Testimonial, Skill
+from .forms import FeedbackForm
 
-from django.core.mail import send_mail
-from django.conf import settings
 
 # Create your views here.
 
@@ -12,3 +11,6 @@ def home(request):
     skills=Skill.objects.all()
     return render(request,'index.html',{'projects':projects, 'testimonials':testimonials,'skills':skills})
 
+def feedback_view(request):
+    form=FeedbackForm()
+    return render(request, 'index.html', {'form': form})
