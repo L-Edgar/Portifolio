@@ -20,8 +20,3 @@ class Skill(models.Model):
     color=models.CharField(max_length=100)
     column=models.BooleanField(default=False)
 
-class Feedback(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    message = models.TextField()
-    subject=models.CharField(max_length=100)
