@@ -1,1 +1,4 @@
+# Environment and compiled files
 .env
+__pycache__/
+*.pyc
