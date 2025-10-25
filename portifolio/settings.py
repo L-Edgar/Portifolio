@@ -29,7 +29,20 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.vercel.app','.now.sh','127.0.0.1','localhost']
 
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_PORT = 587
+#EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+#EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+#EMAIL_USE_TLS = True
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'apikey'  # Literally the word 'apikey'
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_USER')
+DEFAULT_FROM_EMAIL = config('EMAIL_ADDRESS') 
 
 
 
@@ -85,11 +98,14 @@ WSGI_APPLICATION = "portifolio.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "railway",
-        "USER":"postgres",
-        "PASSWORD":"hHvwRsThexraLjITpsSznDMzpjkOechU",
-        "HOST":"viaduct.proxy.rlwy.net",
-        "PORT":"58070",
+        "NAME":"defaultdb",
+        "USER":"avnadmin",
+        "PASSWORD":"AVNS_WzxyOTLZCF-BgFQJfsZ",
+        "HOST":"edgar-db-edgar-portifolio.j.aivencloud.com",
+        "PORT":15275,
+        'OPTIONS': {
+                'sslmode': 'require',       # Aiven typically requires SSL
+            },
         
         
     }

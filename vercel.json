@@ -23,10 +23,5 @@
         "src": "/(.*)",
         "dest": "portifolio/wsgi.py"
       }
-    ],
-    "functions": {
-    "api/*": {
-      "runtime": "edge"
-    }
-  }
+    ]
   }
