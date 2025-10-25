@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 from decouple import config
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -100,8 +102,8 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME":"defaultdb",
         "USER":"avnadmin",
-        "PASSWORD":"AVNS_WzxyOTLZCF-BgFQJfsZ",
-        "HOST":"edgar-db-edgar-portifolio.j.aivencloud.com",
+        "PASSWORD": os.getenv('DB_PASSWORD'),
+        "HOST":os.getenv('DB_HOST'),
         "PORT":15275,
         'OPTIONS': {
                 'sslmode': 'require',       # Aiven typically requires SSL
